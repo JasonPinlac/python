@@ -24,24 +24,19 @@ def prompt_for_students():
             break
 
 def read_file():
-    f = open("students.txt", "r")
+    f = open("mystudents.txt", "r")
     for student in f.readlines():
         student_details = student.split(",")
-        print(student_details)
         if len(student_details) > 1:
             add_student(student_details[0], student_details[1].strip('\n'))
     f.close()
 
 def save_file():
-    f = open("students.txt", "w") # a is an access mode. There is r, a, w and more
+    f = open("mystudents.txt", "w") # a is an access mode. There is r, a, w and more
     for student in students:
         f.write("{0},{1}\n".format(student["name"], student["student_id"]))
     f.close()
 
-# try:
 read_file()
-print(students)
 prompt_for_students()
 save_file()
-# except Exception as error:
-#     print("Error: {0}".format(error))
