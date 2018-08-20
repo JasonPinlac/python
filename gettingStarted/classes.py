@@ -1,40 +1,23 @@
-
-class Student:
-
-    # static variables
-    school_name = "Jupiter High School"
-
-    # static methods
-    def get_school():
-        return "Jupiter High School"
-
-    # consctuctor
-    def __init__(self, name, student_id="0"):
-        # instance attributes
-        self.name = name
-        self.student_id = student_id
-    
-    def __str__(self):
-        return self.name + " " + self.student_id
-
-    # instance methods
-    def get_name_capitalized(self):
-        return self.name.capitalize()
-
-  
-
-def add_student(student):
-    students.append(student)
-
 students = []
 
-student1 = Student("jason", "7")
+class Student:
+    def __init__(self, name="John Doe", student_id=0, student_grades=[]):
+        self.name = name
+        self.student_id = student_id
+        self.student_grades = student_grades
+
+    def __str__(self):
+        return f"Student object:\n\tname:{self.name},\n\tstudent_id:{self.student_id},\n\tstudent_grades:{self.student_grades}"
+
+student1 = Student()
+student2 = Student("Jason Pinlac", 1, [99, 98, 100, 103])
 
 
-print(student1.name + student1.student_id)
+students.append(student1)
+students.append(student2)
 
-print(student1.get_name_capitalized())
 
+print(students)
 
-print(Student.get_school())
-print(Student.school_name)
+for student in students:
+    print(student)
